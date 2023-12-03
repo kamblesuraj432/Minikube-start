@@ -52,7 +52,7 @@ Run the following commands on the server nodes to prepare them for minikube.
 # using 'sudo su' is not a good practice.
 sudo yum update
 sudo yum install docker -y
-
+sudo service docker start
 sudo systemctl enable docker.service # enable and start in single command.
 sudo usermod -aG docker $USER && newgrp docker
 
