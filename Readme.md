@@ -25,7 +25,7 @@ sudo install minikube-linux-amd64 /usr/local/bin/minikube
 
 
 # Start minikube.
-sudo minikube start --driver=docker
+minikube start --driver=docker
 
 sudo apt update 
 ```
@@ -53,10 +53,19 @@ Run the following commands on the server nodes to prepare them for minikube.
 sudo yum update
 sudo yum install docker -y
 sudo service docker start
+
 sudo systemctl enable docker.service # enable and start in single command.
 sudo usermod -aG docker $USER && newgrp docker
 
+# Adding minikube.
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
 
+
+# Start minikube.
+minikube start --driver=docker
+
+```
 ## Minikube Server
 
 1. Initialize the Kubectl to the server node.
