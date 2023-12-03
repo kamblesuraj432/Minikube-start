@@ -16,7 +16,7 @@ sudo apt update
 sudo apt-get install -y apt-transport-https ca-certificates curl
 sudo apt install docker.io -y
 
-sudo systemctl enable --now docker # enable and start in single command.
+sudo systemctl enable docker.service # enable and start in single command.
 sudo usermod -aG docker $USER && newgrp docker
 
 # Adding minikube.
@@ -53,7 +53,7 @@ Run the following commands on the server nodes to prepare them for minikube.
 sudo yum update
 sudo yum install docker -y
 
-sudo systemctl enable --now docker # enable and start in single command.
+sudo systemctl enable docker.service # enable and start in single command.
 sudo usermod -aG docker $USER && newgrp docker
 
 
