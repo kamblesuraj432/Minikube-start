@@ -30,7 +30,7 @@ sudo minikube start --driver=docker
 sudo apt update 
 ```
 
-## Master Node
+## Minikube Server
 
 1. Initialize the Kubectl to the server node.
 
