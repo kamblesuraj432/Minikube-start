@@ -1,5 +1,5 @@
 # Minikube-start
-# Minikube Installation Guide
+# Minikube Installation for Ubuntu OS Guide
 
 ## Pre-requisites
 
@@ -29,6 +29,33 @@ sudo minikube start --driver=docker
 
 sudo apt update 
 ```
+## Verify  minikube Connection
+
+On server:
+
+```bash
+kubectl get pods -A
+```
+
+# Minikube Installation for Amazon-Linux OS Guide
+
+## Pre-requisites
+
+* Amazon-Linux OS
+* sudo privileges
+* Internet access
+* t2.medium instance type or higher
+
+Run the following commands on the server nodes to prepare them for minikube.
+
+```bash
+# using 'sudo su' is not a good practice.
+sudo yum update
+sudo yum install docker -y
+
+sudo systemctl enable --now docker # enable and start in single command.
+sudo usermod -aG docker $USER && newgrp docker
+
 
 ## Minikube Server
 
