@@ -1,20 +1,14 @@
 # Minikube-start
-# Kubeadm Installation Guide
-
-This guide outlines the steps needed to set up a Kubernetes cluster using kubeadm.
+# Minikube Installation Guide
 
 ## Pre-requisites
 
-* Ubuntu OS (Xenial or later)
+* Ubuntu OS
 * sudo privileges
 * Internet access
 * t2.medium instance type or higher
 
----
-
-## Both Master & Worker Node
-
-Run the following commands on both the master and worker nodes to prepare them for kubeadm.
+Run the following commands on the server nodes to prepare them for minikube.
 
 ```bash
 # using 'sudo su' is not a good practice.
@@ -23,15 +17,17 @@ sudo apt-get install -y apt-transport-https ca-certificates curl
 sudo apt install docker.io -y
 
 sudo systemctl enable --now docker # enable and start in single command.
+sudo usermod -aG docker $USER && newgrp docker
 
-# Adding GPG keys.
-curl -fsSL "https://packages.cloud.google.com/apt/doc/apt-key.gpg" | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/kubernetes-archive-keyring.gpg
+# Adding minikube.
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
 
-# Add the repository to the sourcelist.
-echo 'deb https://packages.cloud.google.com/apt kubernetes-xenial main' | sudo tee /etc/apt/sources.list.d/kubernetes.list
+
+# Start minikube.
+sudo minikube start --driver=docker
 
 sudo apt update 
-sudo apt install kubeadm=1.20.0-00 kubectl=1.20.0-00 kubelet=1.20.0-00 -y
 ```
 
 **Sample Command run on master node**
