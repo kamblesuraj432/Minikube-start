@@ -32,16 +32,14 @@ sudo apt update
 
 ## Master Node
 
-1. Initialize the Kubernetes master node.
+1. Initialize the Kubectl to the server node.
 
     ```bash
-    sudo kubeadm init
+    sudo curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+    chmod +x kubectl
+    mkdir -p ~/.local/bin
+    mv ./kubectl ~/.local/bin/kubectl
     ```
-    <kbd>![image](https://github.com/paragpallavsingh/kubernetes-kickstarter/assets/40052830/4fed3d68-eb41-423d-b83f-35c3cc11476e)</kbd>
-
-    After succesfully running, your Kubernetes control plane will be initialized successfully.
-
-   <kbd>![image](https://github.com/paragpallavsingh/kubernetes-kickstarter/assets/40052830/760276f4-9146-4bc1-aa92-48cc1c0b13f4)</kbd>
 
 
 3. Set up local kubeconfig (both for root user and normal user):
