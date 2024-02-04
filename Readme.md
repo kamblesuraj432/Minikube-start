@@ -79,9 +79,9 @@ minikube start --driver=docker
 2. Set up local kubectl config file:
 
     ```bash
-    chmod +x kubectl
-    mkdir -p ~/.local/bin
-    mv ./kubectl ~/.local/bin/kubectl
+    sudo chmod +x kubectl
+    sudo mkdir -p ~/.local/bin
+    sudo mv ./kubectl ~/.local/bin/kubectl
     ```
 
 ## Verify  minikube Connection
